@@ -1,8 +1,12 @@
+![Typing SVG](https://readme-typing-svg.herokuapp.com?color=00FF00&size=22&center=true&vCenter=true&width=600&lines=AI+Powered+Waste+Sorting;ESP32+%2B+Computer+Vision;Patent+Pending+System)
+# 🌍 EcoSort: AI-Powered IoT Waste Classifier
+
 ![Status](https://img.shields.io/badge/Status-Active-green)
+![Build](https://img.shields.io/badge/Build-Stable-success)
 ![Platform](https://img.shields.io/badge/Platform-Thonny-blue)
 ![Language](https://img.shields.io/badge/MicroPython-Embedded-yellow)
 ![AI](https://img.shields.io/badge/AI-Gemini-orange)
-# 🌍 EcoSort: AI-Powered IoT Waste Classifier
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 🚀 A patent-pending intelligent waste segregation system that uses AI + robotics to classify and sort waste in real-time automatically.
 
@@ -41,8 +45,6 @@ This enables **hands-free, accurate, and scalable waste segregation**.
 System Diagram
   
   <img width="300" height="400" alt="diagram" src="https://github.com/user-attachments/assets/81266cc4-343e-4e0d-bba5-ca862a0d02de" />
-  <br>
-  <img width="300" height="400" alt="WhatsApp Image 2026-04-19 at 12 01 47 PM (2)" src="https://github.com/user-attachments/assets/65bead2e-a707-4783-8f80-c78c54c8778f" />
 
 ---
 
@@ -203,8 +205,6 @@ Prototype
 
 <img width="300" height="150" alt="WhatsApp Image 2026-04-19 at 11 59 37 AM" src="https://github.com/user-attachments/assets/b07d9ef7-e251-4756-8002-3c34277365bf" />
 <br>
-<img width="300" height="400" alt="WhatsApp Image 2026-04-19 at 11 58 37 AM" src="https://github.com/user-attachments/assets/7f5366b0-0675-4a5c-87b1-30d0f8b1c564" />
-<br>
 <img width="300" height="400" alt="WhatsApp Image 2026-04-19 at 11 58 37 AM (2)" src="https://github.com/user-attachments/assets/8aee622e-2cb9-410b-bf83-6e7eadfad86e" />
 
 ---
@@ -218,10 +218,6 @@ images
 <img width="300" height="300" alt="WhatsApp Image 2026-04-19 at 12 01 48 PM (1)" src="https://github.com/user-attachments/assets/10f80998-69a6-4e5f-aa25-4037c926faf1" />
 <br>
 <img width="300" height="400" alt="WhatsApp Image 2026-04-19 at 12 01 47 PM" src="https://github.com/user-attachments/assets/87bcb620-0f63-4c43-a897-b674040bb896" />
-<br>
-<img width="300" height="300" alt="WhatsApp Image 2026-04-19 at 12 01 46 PM (1)" src="https://github.com/user-attachments/assets/1be7ce4d-32f8-4dd0-a446-ca97a3ecc812" />
-<br>
-<img width="300" height="400" alt="WhatsApp Image 2026-04-19 at 11 58 37 AM (3)" src="https://github.com/user-attachments/assets/c1eacadc-2ad0-4ccb-a99e-1ae0e17fb88c" />
 
 ---
 
