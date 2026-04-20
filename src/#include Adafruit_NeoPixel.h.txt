@@ -1,0 +1,16 @@
+#include <Adafruit_NeoPixel.h>
+
+#define PIN        1    // GPIO pin connected to NeoPixel data line
+#define NUMPIXELS  16   // Number of LEDs in the ring
+
+Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
+
+void setup() {
+  pixels.begin();  // Initialize the NeoPixel library
+  pixels.fill(pixels.Color(255, 255, 255)); // Set all LEDs to white
+  pixels.show();   // Update the LEDs
+}
+
+void loop() {
+  // Nothing needed in loop, LEDs stay white
+}

@@ -1,0 +1,34 @@
+#include <ESP32Servo.h>
+
+#define IR_PIN 5         // IR sensor output pin
+#define SERVO_PIN 6      // Servo signal pin
+
+Servo myServo;
+
+void setup() {
+  Serial.begin(115200);
+  
+  // Initialize IR sensor and servo
+  pinMode(IR_PIN, INPUT);
+  myServo.attach(SERVO_PIN);
+
+  // Set initial servo position
+  myServo.write(0);
+  Serial.println("Servo at 0 degrees.");
+}
+
+void loop() {
+  int irValue = digitalRead(IR_PIN);
+
+  // If IR sensor detects an object
+  if (irValue == LOW) {   // Adjust if HIGH is the detection state for your IR sensor
+    Serial.println("Object detected!");
+    myServo.write(90);     // Rotate servo to 90 degrees
+    delay(1000);           // Hold position for 1 second
+  } else {
+    Serial.println("No object.");
+    myServo.write(0);      // Return servo to 0 degrees
+  }
+
+  delay(200);
+}
