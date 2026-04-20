@@ -1,72 +1,284 @@
-🌍 EcoSort: AI-Powered IoT Waste Classifier
-EcoSort is an intelligent waste management system built on MicroPython. By combining computer vision, the Google Gemini API, and precision robotics, it automatically identifies and segregates refuse into three streams: Recyclable, Non-Recyclable, and Organic.
-________________________________________
-✨ Core Capabilities
-•	Intelligent Sensing: Instant object detection via infrared (IR) sensors
-•	Vision-Based AI: Captures high-resolution imagery and leverages Gemini's multimodal capabilities for high-accuracy sorting
-•	Automated Logistics: Motorised sorting tray system driven by servos and stepper motors
-•	Interactive Feedback: Real-time data visualisation on a 20x4 LCD and dynamic status lighting via NeoPixel LEDs
-•	Cloud-Enabled: Integrated WiFi for remote telemetry and over-the-air updates
-________________________________________
-🛠️ Hardware Components
-•	ESP32 Microcontroller
-•	Camera Module (OV2640)
-•	IR Sensor
-•	4 Servo Motors
-•	Stepper Motor
-•	16x NeoPixel LED Ring
-•	4x20 LCD Display
-•	WiFi Module
-________________________________________
-🔩 Hardware Architecture
-Component	Pin Number	Description
-Front Servo 1	GPIO 9	Front sorting mechanism
-Front Servo 2	GPIO 8	Front sorting mechanism
-Drop Servo 1	GPIO 7	Drop mechanism
-Drop Servo 2	GPIO 44	Drop mechanism
-IR Sensor	GPIO 41	Object detection
-NeoPixel Ring	GPIO 1	16 LEDs for status indication
-Stepper Motor	GPIO 2,3,4,43	Half-step motor control
-I2C SDA	GPIO 5	I2C data line
-I2C SCL	GPIO 6	I2C clock line
-Camera	Default pins	OV2640 camera module
-Technical Note: Servos operate on a 50Hz PWM frequency. The LCD is pre-configured to I2C address 0x27.
-________________________________________
-📋 Prerequisites
-•	MicroPython firmware
-•	Python 3.x
-•	ESP32 development board
-•	Required hardware components
-•	WiFi network access
-•	Google Gemini API key
-________________________________________
-⚙️ Setup & Deployment
-1. Firmware Initialization
+![Status](https://img.shields.io/badge/Status-Active-green)
+![Platform](https://img.shields.io/badge/Platform-Thonny-blue)
+![Language](https://img.shields.io/badge/MicroPython-Embedded-yellow)
+![AI](https://img.shields.io/badge/AI-Gemini-orange)
+# 🌍 EcoSort: AI-Powered IoT Waste Classifier
+
+🚀 A patent-pending intelligent waste segregation system that uses AI + robotics to classify and sort waste in real-time automatically.
+
+Automates the waste segregation process by detecting objects, capturing images, classifying them using AI, and physically sorting them using motors. This system reduces manual effort and improves efficiency in waste management.
+
+EcoSort combines **computer vision**, **Google Gemini API**, and **embedded systems** to build a fully automated pipeline:
+
+**Detection → AI Classification → Mechanical Sorting**
+
+---
+
+## ❗ Problem Statement
+
+Manual waste segregation leads to:
+- Poor recycling efficiency  
+- Contamination of recyclable materials  
+- Increased environmental damage  
+
+There is no widely adopted **low-cost, intelligent automation system** for real-time waste sorting.
+
+---
+
+## 💡 Solution
+
+EcoSort solves this by integrating:
+- AI-based image classification  
+- Real-time object detection  
+- Automated motor-driven sorting  
+
+This enables **hands-free, accurate, and scalable waste segregation**.
+
+---
+
+## 🧩 System Architecture
+
+System Diagram
+  
+  <img width="300" height="400" alt="diagram" src="https://github.com/user-attachments/assets/81266cc4-343e-4e0d-bba5-ca862a0d02de" />
+  <br>
+  <img width="300" height="400" alt="WhatsApp Image 2026-04-19 at 12 01 47 PM (2)" src="https://github.com/user-attachments/assets/65bead2e-a707-4783-8f80-c78c54c8778f" />
+
+---
+
+## ✨ Core Capabilities
+
+- 🔍 **Intelligent Sensing** – IR sensor detects object placement  
+- 🧠 **Vision-Based AI** – Uses Gemini API for accurate classification  
+- ⚙️ **Automated Sorting** – Servo and stepper motor mechanism  
+- 📟 **Interactive Feedback** – 20x4 LCD display and NeoPixel LEDs  
+- ☁️ **Cloud Connectivity** – WiFi-enabled telemetry and updates  
+
+---
+
+## 📜 Intellectual Property
+
+A patent application has been filed for this system.
+
+- **Application Number:** 202541113884  
+- **Status:** Patent Pending  
+
+Details will be updated upon grant.
+
+---
+
+## 🧠 Innovation & Novelty
+
+- Integration of real-time AI classification with mechanical sorting
+- Use of cloud-based multimodal AI (Gemini) in embedded systems
+- Fully automated pipeline from detection → classification → actuation
+- Scalable design for smart city waste management systems
+
+---
+
+## 🛠️ Hardware Components
+
+- ESP32 Microcontroller  
+- OV2640 Camera Module  
+- IR Sensor  
+- 4x Servo Motors  
+- Stepper Motor  
+- 16x NeoPixel LED Ring  
+- 20x4 LCD Display (I2C)  
+- WiFi Connectivity  
+
+---
+
+## 🔌 Hardware Architecture
+
+| Component        | GPIO Pins       | Description                     |
+|----------------|----------------|---------------------------------|
+| Front Servo 1  | GPIO 9         | Front sorting mechanism         |
+| Front Servo 2  | GPIO 8         | Front sorting mechanism         |
+| Drop Servo 1   | GPIO 7         | Drop mechanism                  |
+| Drop Servo 2   | GPIO 44        | Drop mechanism                  |
+| IR Sensor      | GPIO 41        | Object detection                |
+| NeoPixel Ring  | GPIO 1         | Status LEDs                     |
+| Stepper Motor  | GPIO 2,3,4,43  | Half-step control               |
+| I2C SDA        | GPIO 5         | LCD data line                   |
+| I2C SCL        | GPIO 6         | LCD clock line                  |
+| Camera         | Default pins   | OV2640 module                   |
+
+**Technical Notes:**
+- Servo PWM frequency: **50Hz**  
+- LCD I2C Address: **0x27**
+
+---
+
+## 🧰 Tech Stack
+
+- MicroPython firmware  
+- Python 3.x  
+- ESP32 development board  
+- Required hardware components  
+- WiFi network access  
+- Google Gemini API key  
+
+---
+
+## 🔧 Installation & Setup
+
+### 1. Flash MicroPython Firmware
+
+```bash
 esptool.py --port /dev/ttyUSB0 erase_flash
 esptool.py --port /dev/ttyUSB0 --baud 460800 write_flash -z 0x1000 micropython.bin
-2. Library Dependencies
+```
+### 2. Install Dependencies
+
+```md
+```python
 import upip
 upip.install('urequests')
-3. Configuration
-Update Garbage-Separator.py with your local network details and API credentials:
-•	SSID: Your network name
-•	PASSWORD: Your WiFi security key
-•	GEMINI_API_KEY: Your unique Google AI Studio key
-________________________________________
-🛠️ Operational Workflow
-1.	Boot-up: Device initialises and establishes a WiFi handshake
-2.	Detection: IR Sensor triggers when an object is placed in the hopper
-3.	Analysis: Camera captures frame → Gemini API classifies image
-4.	Sorting: Stepper + Servos align chutes based on classification
-5.	Completion: Item deposited, UI resets for next cycle
-________________________________________
-📊 Taxonomy of Waste
-•	♻️ Recyclable: Metals, glass containers, clean paper, HDPE/PET plastics
-•	🗑️ Non-Recyclable: Composite materials, contaminated packaging, residuals
-•	🍎 Organic: Food scraps, garden waste, compostable matter
-________________________________________
- 
-         
+```
 
+### 3. Configure Credentials
 
-________________________________________
+Edit Garbage-Separator.py:
+
+```bash
+SSID = 'your_wifi_ssid'
+PASSWORD = 'your_wifi_password'
+GEMINI_API_KEY = 'your_gemini_api_key'
+```
+---
+
+## ⚙️ How It Works (Detailed Flow)
+
+1. **Object Detection**
+   - IR sensor detects incoming waste
+   - Triggers image capture
+
+2. **Image Processing**
+   - ESP32 camera captures a frame
+   - Image sent to Gemini API
+
+3. **AI Classification**
+   - Gemini analyses object type
+   - Returns category (Recyclable / Organic / Non-Recyclable)
+
+4. **Decision Logic**
+   - ESP32 maps category → motor action
+
+5. **Mechanical Execution**
+   - Stepper aligns chute
+   - Servos open the correct bin
+
+6. **Feedback System**
+   - LCDs result
+   - NeoPixel shows status
+
+7. **Reset Cycle**
+   - System prepares for the next object
+
+---
+
+## 📊 Results & Performance
+
+- ⏱️ Average classification time: ~2–4 seconds  
+- 🎯 Accuracy (tested on sample items): ~85–92%  
+- 🔁 Continuous operation: Stable for multiple cycles  
+- 🌐 WiFi latency impact: Medium (depends on network)
+
+**Note: Accuracy varies with lighting and object clarity.**
+
+---
+
+## 📊 Waste Classification
+
+- ♻️ Recyclable – Metals, glass, clean paper, plastics
+- 🗑️ Non-Recyclable – Contaminated or composite waste
+- 🍎 Organic – Food scraps, biodegradable waste
+
+---
+
+## 📸 Hardware Prototype
+
+Prototype
+
+<img width="300" height="150" alt="WhatsApp Image 2026-04-19 at 11 59 37 AM" src="https://github.com/user-attachments/assets/b07d9ef7-e251-4756-8002-3c34277365bf" />
+<br>
+<img width="300" height="400" alt="WhatsApp Image 2026-04-19 at 11 58 37 AM" src="https://github.com/user-attachments/assets/7f5366b0-0675-4a5c-87b1-30d0f8b1c564" />
+<br>
+<img width="300" height="400" alt="WhatsApp Image 2026-04-19 at 11 58 37 AM (2)" src="https://github.com/user-attachments/assets/8aee622e-2cb9-410b-bf83-6e7eadfad86e" />
+
+---
+
+## 📸 Design
+
+images
+
+<img width="300" height="300" alt="WhatsApp Image 2026-04-19 at 12 01 49 PM (1)" src="https://github.com/user-attachments/assets/9d4f4fd4-c806-492b-b4e8-8f33027f58be" />
+<br>
+<img width="300" height="300" alt="WhatsApp Image 2026-04-19 at 12 01 48 PM (1)" src="https://github.com/user-attachments/assets/10f80998-69a6-4e5f-aa25-4037c926faf1" />
+<br>
+<img width="300" height="400" alt="WhatsApp Image 2026-04-19 at 12 01 47 PM" src="https://github.com/user-attachments/assets/87bcb620-0f63-4c43-a897-b674040bb896" />
+<br>
+<img width="300" height="300" alt="WhatsApp Image 2026-04-19 at 12 01 46 PM (1)" src="https://github.com/user-attachments/assets/1be7ce4d-32f8-4dd0-a446-ca97a3ecc812" />
+<br>
+<img width="300" height="400" alt="WhatsApp Image 2026-04-19 at 11 58 37 AM (3)" src="https://github.com/user-attachments/assets/c1eacadc-2ad0-4ccb-a99e-1ae0e17fb88c" />
+
+---
+
+## 🌍 Use Cases
+
+- Smart dustbins for cities  
+- Waste segregation in apartments  
+- Public places (railways, malls)  
+- Educational & research prototypes  
+
+---
+
+## 🎥 Demo Summary
+
+- Object placed → detected instantly  
+- Classified via AI  
+- Sorted automatically into the correct bin  
+
+👉 No human intervention required
+
+---
+
+## 🔮 Future Scope
+
+- Edge AI model for offline classification  
+- Mobile/web dashboard for monitoring  
+- Integration with smart city infrastructure  
+- Waste analytics and reporting system  
+- Solar-powered autonomous deployment  
+
+---
+
+## ⚠️ Limitations
+
+- Requires stable WiFi for cloud-based AI classification  
+- Latency depends on API response time  
+- Accuracy may vary with lighting conditions  
+- Hardware cost may limit large-scale deployment  
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
+
+## 🙏 Acknowledgments
+
+- Google Gemini API for waste classification
+- MicroPython community
+- Open-source hardware community
+
+---
+
+## 📞 Support
+
+For support, please open an issue in the repository or contact the maintainers.
+
+---
