@@ -24,7 +24,7 @@ I2C_ADDR = 0x27
 I2C_NUM_ROWS = 4
 I2C_NUM_COLS = 20
 
-# Initialize devices
+# Initialise devices
 np = NeoPixel(Pin(NEOPIXEL_PIN), NUM_PIXELS)
 stepper = HalfStepMotor.frompins(*STEPPER_PINS)
 i2c = SoftI2C(sda=Pin(5), scl=Pin(6), freq=400000)
@@ -32,9 +32,9 @@ lcd = I2cLcd(i2c, I2C_ADDR, I2C_NUM_ROWS, I2C_NUM_COLS)
 ir_sensor = Pin(IR_SENSOR_PIN, Pin.IN)
 
 # Wi-Fi credentials
-SSID = 'ANAND 7075'
-PASSWORD = 'anand1401'
-GEMINI_API_KEY = 'AIzaSyDZvN320mIsVDIyjAbjrzwgxQ3qEATAmbg'
+SSID = 'Enter Wifi name'
+PASSWORD = 'Enter Wifi password'
+GEMINI_API_KEY = 'Enter your API key here'
 GEMINI_API_URL = f'https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}'
 
 def connect_to_wifi(ssid, password):
@@ -99,7 +99,7 @@ def detect_waste(photo_path):
             "contents": [{
                 "parts": [
                     {
-                        "text": "Analyze the waste item shown in the image. Identify the object present and categorize it into one of the following three categories: Biodegradable, Non-biodegradable, or Unknown. Provide a one-word answer indicating the category."
+                        "text": "Analyse the waste item shown in the image. Identify the object present and categorise it into one of the following three categories: Biodegradable, Non-biodegradable, or Unknown. Provide a one-word answer indicating the category."
                     },
                     {
                         "inline_data": {
