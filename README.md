@@ -1,4 +1,4 @@
-![Typing SVG](https://readme-typing-svg.herokuapp.com?color=00FF00&size=22&center=true&vCenter=true&width=600&lines=AI+Powered+Waste+Sorting;ESP32+%2B+Computer+Vision;Patent+Pending+System)
+![Typing SVG](https://readme-typing-svg.herokuapp.com?color=00FF00&size=22&center=true&vCenter=true&width=600&lines=AI+Powered+Waste+Sorting;ESP32+%2B+Computer+Vision)
 #  EcoSort: AI-Powered IoT Waste Classifier
 
 ![Status](https://img.shields.io/badge/Status-Active-green)
