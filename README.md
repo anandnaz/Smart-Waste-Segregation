@@ -133,7 +133,6 @@ esptool.py --port /dev/ttyUSB0 --baud 460800 write_flash -z 0x1000 micropython.b
 ```
 ### 2. Install Dependencies
 
-```md
 ```python
 import upip
 upip.install('urequests')
